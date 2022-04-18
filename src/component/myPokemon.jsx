@@ -12,13 +12,6 @@ const MyPokemon = () => {
      const navigate = useNavigate()
      const imageState = useImage()
 
-     const release = (nickName) => {
-        const arr = myPokemons.myPokemons.filter(pokemon => pokemon.nickName !== nickName )
-        myPokemons.setMyPokemons(arr)
-        window.localStorage.removeItem('myPokemon')
-        window.localStorage.setItem('myPokemon', JSON.stringify(arr))
-     }
-
      const Card = styled.div`
         background-color: gold;
         margin-left: 5%;
@@ -64,11 +57,21 @@ const MyPokemon = () => {
         }
      `
 
+     const release = (nickName) => {
+        if(window.confirm("Are you sure you want to release this pokemon?")){
+            const arr = myPokemons.myPokemons.filter(pokemon => pokemon.nickName !== nickName )
+            myPokemons.setMyPokemons(arr)
+            window.localStorage.removeItem('myPokemon')
+            window.localStorage.setItem('myPokemon', JSON.stringify(arr))
+        }
+     }
+
      return (
         <>
+            {console.log(myPokemons)}
             {
-                myPokemons.myPokemons.length === 0 ? 
-                    <div>
+                !myPokemons.myPokemons || myPokemons.myPokemons.length === 0 ? 
+                    <div css={css`margin-top: 50px;`}>
                         <img src={openPokeball} alt="no image" css={css`width: 250px; height: 300px; display: block; margin-right: auto; margin-left: auto;`} />
                         <h1 css={css`text-align: center;`}>You have no pokemon!</h1>
                     </div> :

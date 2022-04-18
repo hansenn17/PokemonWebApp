@@ -3,10 +3,10 @@ import logo from './asset/pokeball-color.png'
 
 export const AppWrapper = styled.div`
     height: 100%;
+    min-height: 100vh;
     width: 100%;
     font-family: 'Quicksand', sans-serif;
     background-color: papayawhip;
-    border-radius: 30px;
     h4{
         font-family: 'Quicksand', sans-serif;
         font-weight: bolder;
@@ -17,8 +17,6 @@ export const AppWrapper = styled.div`
 export const HeaderWrapper = styled.div`
     width: 100%;
     background-color: lightseagreen;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
 `
 
 export const ContentWrapper = styled.div`
