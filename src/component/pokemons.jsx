@@ -32,7 +32,8 @@ const Pokemons = () => {
 
     return (
         <>
-            <h5 css={css`margin-left: 6%; color: tomato`}>You have {pokemonsState.myPokemons ? pokemonsState.myPokemons.length : 0} {pokemonsState.myPokemons.length <= 1 ? "pokemon" : "pokemons"} </h5>
+            {console.log(pokemonsState)}
+            <h5 css={css`margin-left: 6%; color: tomato`}>You have {pokemonsState.myPokemons == null ? 0 : pokemonsState.myPokemons.length} {pokemonsState.myPokemons != null ? pokemonsState.myPokemons.length <= 1 ? "pokemon" : "pokemons" : "pokemon"} </h5>
             {pokemonsState && pokemonsState.pokemons.map(pokemon => (
                 <Pokemon key={pokemon.id} props={pokemon} />
             ))}
